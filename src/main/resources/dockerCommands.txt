@@ -1,0 +1,46 @@
+docker --version
+docker run 5000:5000 in128min/todo-rest-api-h2:1.0.0.RELEASE - downloads and run image from docker registry
+
+docker hub  sample repository - https://hub.docker.com/r/in28min/todo-rest-api-h2/tags
+
+
+docker container ls -> displays list of containers running
+docker container ls -a -> displays list of containers running and stopped
+
+docker container stop container id -> to stop a container
+
+
+docker run -p 5000:5000 -d in28min/todo-rest-api-h2:1.0.0.RELEASE - downloads and run image from docker registry in detached mode from console
+so on ctrl+C the service don't terminate
+
+docker run -p 5000:5000 -d in28min/todo-rest-api-h2:1.0.0.RELEASE  outputs a container id
+
+docker log -f container id to see logs
+
+docker run -p 5001:5000 -d in28min/todo-rest-api-h2:1.0.0.RELEASE - run another instance of the container on port 5001 but created from the same image
+
+docker image ls /  docker images
+
+stop a container
+docker container stop containerId - gracefully shutdown
+docker container kill id - just stop
+
+
+Attach a tag
+----------
+docker tag in28min/todo-rest-api-h2:1.0.0.RELEASE in128min/todo-rest-api-h2:latest
+
+pull a image
+docker pull mysql - it just download the image oes not run, docker run checks whether image is present in local, or else pull from registry
+docker search mysql
+docker image history imageId
+docker image inspect imageId
+docker image remove imageId
+
+docker container pause containerId
+docker container unpause containerId
+docker container inspect containerId
+
+docker container prune - removes all stopped conatiner info
+docker run -p 5000:5000 -d --restart:always/no in28min/todo-rest-api-h2:1.0.0.RELEASE - restart container on restaring docker engine
+
